@@ -344,10 +344,10 @@ public class OpenIdAuthorizationStore<TAuthorization> : IOpenIdAuthorizationStor
 
         cancellationToken.ThrowIfCancellationRequested();
 
-        var authorizations = await _session.Query<TAuthorization, OpenIdAuthorizationIndex>(
+        var authorizations = (await _session.Query<TAuthorization, OpenIdAuthorizationIndex>(
             index => index.ApplicationId == client && index.Subject == subject &&
                      index.Status == status && index.Type == type,
-            collection: OpenIdCollection).ListAsync();
+            collection: OpenIdCollection).ListAsync()).ToList();
 
         foreach (var authorization in authorizations)
         {
@@ -365,9 +365,9 @@ public class OpenIdAuthorizationStore<TAuthorization> : IOpenIdAuthorizationStor
 
         cancellationToken.ThrowIfCancellationRequested();
 
-        var authorizations = await _session.Query<TAuthorization, OpenIdAuthorizationIndex>(
+        var authorizations = (await _session.Query<TAuthorization, OpenIdAuthorizationIndex>(
             index => index.ApplicationId == identifier,
-            collection: OpenIdCollection).ListAsync();
+            collection: OpenIdCollection).ListAsync()).ToList();
 
         foreach (var authorization in authorizations)
         {
@@ -385,9 +385,9 @@ public class OpenIdAuthorizationStore<TAuthorization> : IOpenIdAuthorizationStor
 
         cancellationToken.ThrowIfCancellationRequested();
 
-        var authorizations = await _session.Query<TAuthorization, OpenIdAuthorizationIndex>(
+        var authorizations = (await _session.Query<TAuthorization, OpenIdAuthorizationIndex>(
             index => index.Subject == subject,
-            collection: OpenIdCollection).ListAsync();
+            collection: OpenIdCollection).ListAsync()).ToList();
 
         foreach (var authorization in authorizations)
         {
