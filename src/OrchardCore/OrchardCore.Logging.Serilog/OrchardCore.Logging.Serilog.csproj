@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <PackageReference Include="Serilog.AspNetCore" />
-    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
   <ItemGroup>

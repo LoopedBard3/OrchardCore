@@ -16,7 +16,6 @@
   <ItemGroup>
     <PackageReference Include="HtmlSanitizer" />
     <PackageReference Include="MimeKit" />
-    <PackageReference Include="System.Formats.Asn1" />
   </ItemGroup>
 
   <ItemGroup>

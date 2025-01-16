@@ -29,7 +29,6 @@
 
   <ItemGroup>
     <PackageReference Include="MailKit" />
-    <PackageReference Include="System.Formats.Asn1" />
   </ItemGroup>
 
 </Project>
